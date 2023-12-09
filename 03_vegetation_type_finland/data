@@ -1,0 +1,13 @@
+Source of data: Global Land Cover (Copernicus) at 100m resolution
+-------------------------
+
+https://s3-eu-west-1.amazonaws.com/vito.landcover.global/v3.0.1/2019/E020N60/E020N60_PROBAV_LC100_global_v3.0.1_2019-nrt_Forest-Type-layer_EPSG-4326.tif
+
+https://s3-eu-west-1.amazonaws.com/vito.landcover.global/v3.0.1/2019/E020N80/E020N80_PROBAV_LC100_global_v3.0.1_2019-nrt_Forest-Type-layer_EPSG-4326.tif
+-------------------------------
+0 - Unknown
+1 - Evergreen needle leaf
+2 - Evergreen broad leaf
+3 - Deciduous needle leaf
+4 - Deciduous broad leaf
+5 - Mixed forest
