@@ -1,8 +1,11 @@
-# CidreRForest
-# 01 - Choropleth Maps with ggplot2
+# -------------------------------------------------------------------- #
 #
-# -> For weekly updates on my latest blog posts,
-#    you can check out my blog: adrian-cidre.com
+# - Title: Pinus sylvestris potential distribution under two climate change
+# scenarios
+# - Author: Adrián Cidre
+# - Website: https://adrian-cidre.com
+#
+# -------------------------------------------------------------------- #
 
 # 1. Load packages --------------------------------------------------------
 
@@ -16,6 +19,7 @@ library(pacman)
 p_load(
   forestdata, ggtext, patchwork, terra, tidyterra, tidyverse
 )
+
 
 # 2. Load data ------------------------------------------------------------
 
@@ -41,6 +45,7 @@ psylvestris_2095_rcp85_sr <- fd_forest_eutrees4f(
   scenario = "rcp85"
 )
 
+
 # 3. Prepare data ---------------------------------------------------------
 
 ## 3.1 Reclassify --------------------------------
@@ -62,7 +67,7 @@ reclassify_rcp <- function(raster, classes) {
 
 ## Classes and colors for each class
 ps_classes <- c("Absent", "Will disappear", "Will appear",  "Present and stable")
-ps_colors <- c("#BE92A2", "#96031A", "#6DA34D", "#CEEDDB")
+ps_colors  <- c("#BE92A2", "#96031A", "#6DA34D", "#CEEDDB")
 
 ## Apply function
 psylvestris_rcp45_sr <- reclassify_rcp(psylvestris_2095_rcp45_sr, ps_classes)
@@ -77,51 +82,35 @@ plot(psylvestris_rcp85_sr, col = ps_colors)
 
 # 4. Visualization --------------------------------------------------------
 
-## First plot
-rcp45_gg <- ggplot() +
-  geom_spatraster(
-    data = psylvestris_rcp45_sr,
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(
-    values       = ps_colors,
-    labels       = ps_classes,
-    na.value     = NA,
-    na.translate = FALSE
-  ) +
-  labs(
-    title = "(a) RCP 45"
-  ) +
-  theme_void(base_family = "Roboto") +
-  theme(
-    plot.title = element_text(
-      face = "bold", hjust = .5, color = "snow"
+## Create a helper function
+map_rcp <- function(data, title = "(a) RCP 4.5") {
+  
+  ggplot() +
+    geom_spatraster(
+      data = data,
+      show.legend = FALSE
+    ) +
+    scale_fill_manual(
+      values   = ps_colors,
+      na.value = NA
+    ) +
+    labs(
+      title = title
+    ) +
+    theme_void(base_family = "Roboto") +
+    theme(
+      plot.title = element_text(
+        face = "bold", hjust = .5, color = "snow"
+      )
     )
-  )
+  
+}
 
-## Second plot
-rcp85_gg <-  ggplot() +
-  geom_spatraster(
-    data = psylvestris_rcp85_sr,
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(
-    values       = ps_colors,
-    labels       = ps_classes,
-    na.value     = NA,
-    na.translate = FALSE
-  ) +
-  labs(
-    title = "(b) RCP 85"
-  ) +
-  theme_void(base_family = "Roboto") +
-  theme(
-    plot.title = element_text(
-      face = "bold", hjust = .5, color = "snow"
-    )
-  )
+## Create maps
+rcp45_gg <- map_rcp(psylvestris_rcp45_sr)
+rcp85_gg <- map_rcp(psylvestris_rcp85_sr, title = "(b) RCP 8.5")
 
-## Wrappers for ggtext
+## Wrappers for {ggtext}
 absent_txt   <- str_glue("<b style = 'color: {ps_colors[1]};'>almost absent</b>")
 decrease_txt <- str_glue("<b style = 'color: {ps_colors[2]};'>decrease</b>")
 increase_txt <- str_glue("<b style = 'color: {ps_colors[3]};'>shift</b>")
@@ -131,7 +120,7 @@ present_txt  <- str_glue("<b style = 'color: {ps_colors[4]};'>present</b>")
 title_txt <- str_glue(
   "*Pinus sylvestris*, {absent_txt} in southern Europe and {present_txt} in Northern and Central Europe, is<br>
   projected to {increase_txt} its potential distribution northward and {decrease_txt} in Central Europe under two<br>
-  climatic scenarios"
+  climatic scenarios by 2095"
 )
 
 ## Final maps
@@ -161,11 +150,11 @@ ps_gg <- rcp45_gg +
 
 ## Export
 ggsave(
-  filename = "06_pinus_sylvestris_rcp_map/ps.png",
-  plot = ps_gg,
-  width = 25,
-  height = 20,
-  units = "cm"
+  filename = "05_pinus_sylvestris_rcp_map/psylvestris_rcp.png",
+  plot     = ps_gg,
+  width    = 25,
+  height   = 20,
+  units    = "cm"
 )
 
 
