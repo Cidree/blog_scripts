@@ -1,8 +1,0 @@
-
-https://gee-community-catalog.org/projects/canopy/
-
-The worldwide variation in vegetation height is fundamental to the global carbon cycle and central to the functioning of ecosystems and their biodiversity. Geospatially explicit and, ideally, highly resolved information is required to manage terrestrial ecosystems, mitigate climate change, and prevent biodiversity loss. Here, we present the first global, wall-to-wall canopy height map at 10 m ground sampling distance for the year 2020. No single data source meets these requirements: dedicated space missions like GEDI deliver sparse height data, with unprecedented coverage, whereas optical satellite images like Sentinel-2 offer dense observations globally, but cannot directly measure vertical structures. By fusing GEDI with Sentinel-2, we have developed a probabilistic deep learning model to retrieve canopy height from Sentinel-2 images anywhere on Earth, and to quantify the uncertainty in these estimates.
-
-GSD: 10m
-CRS: EPSG:4326 (geographic latitude/longitude)
-Nodata Value: 255

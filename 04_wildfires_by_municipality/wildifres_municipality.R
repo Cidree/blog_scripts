@@ -25,7 +25,7 @@ p_load(
 # 2. Load data ------------------------------------------------------------
 
 ## Load data
-wildfires_tbl <- read_excel("02_wildfires_spain/wildfires_2006_2015.xlsx",
+wildfires_tbl <- read_excel("02_wildfires_ccaa_2006_2015/wildfires_2006_2015.xlsx",
                             sheet = 3) 
 
 ## Set names
@@ -78,18 +78,18 @@ esp_mun_all %>%
        caption  = "Author: Adrián Cidre González",
        fill     = "Area (ha)") +
   # Theme
-  theme_void() +
+  theme_void(base_family = "Source Sans Pro") +
   theme(
-    plot.title      = element_text(size = 14, face = "bold", hjust = .95, colour = "indianred4"),
-    plot.subtitle   = element_text(size = 8, hjust = .95, colour = "indianred4",
-                                   margin = margin(b = 20, t = 5)),
-    plot.caption    = element_text(size = 8, colour = "indianred4"),
-    legend.title    = element_text(size = 8, colour = "indianred4"),
-    legend.text     = element_text(size = 8, colour = "indianred4"),
-    legend.position = "bottom",
-    legend.key.width = unit(1, "cm"),
+    plot.title        = element_text(size = 14, face = "bold", hjust = .95, colour = "indianred4"),
+    plot.subtitle     = element_text(size = 8, hjust = .95, colour = "indianred4",
+                                   margin = margin(b = 23, t = 5)),
+    plot.caption      = element_text(size = 8, colour = "indianred4"),
+    legend.title      = element_text(size = 8, colour = "indianred4"),
+    legend.text       = element_text(size = 8, colour = "indianred4"),
+    legend.position   = "bottom",
+    legend.key.width  = unit(1, "cm"),
     legend.key.height = unit(0.3, "cm"),
-    plot.background = element_rect(fill = "#B0C4DE", colour = NA)
+    plot.background   = element_rect(fill = "#B0C4DE", colour = NA)
     
   ) -> g
 
@@ -97,17 +97,17 @@ esp_mun_all %>%
 # 6. 3D visualization -----------------------------------------------------
 
 plot_gg(g,
-        multicore = T,
-        width = 5,
-        height = 5,
-        scale = 150,
-        shadow_intensity = .75,
-        sunangle = 360,
-        offset_edges = T,
-        windowsize = c(1400,866),
-        zoom = .5, 
-        phi    = 35, 
-        theta  = -30)
+        multicore        = T,
+        width            = 5,
+        height           = 5,
+        scale            = 150,
+        shadow_intensity = .6,
+        sunangle         = 315,
+        offset_edges     = T,
+        windowsize       = c(1400,866),
+        zoom             = .5, 
+        phi              = 35, 
+        theta            = -30) 
 render_snapshot("04_wildfires_by_municipality/wildfires_ha_muni.png", clear = T)
 
 
