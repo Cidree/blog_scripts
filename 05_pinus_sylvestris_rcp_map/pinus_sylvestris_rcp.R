@@ -130,12 +130,11 @@ ps_gg <- rcp45_gg +
     title   = title_txt,
     caption = "Author: Adrián Cidre | Data source: EU-Trees4F",
     theme   = theme(
-      text       = element_text(colour = "snow"),
       plot.title = element_markdown(
         family     = "Merriweather",
         face       = "bold",
         lineheight = 1.2,
-        margin     = margin(t = 5, l = 5)
+        margin     = margin(t = 5, l = 5, b = 10)
       ),
       plot.caption = element_text(
         hjust  = .5,
