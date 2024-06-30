@@ -130,24 +130,24 @@ ndmi_gg <- ggplot() +
     palette   = "bl_yl_rd",
     direction = -1
   ) +
-    guides(
-      fill = guide_legend(
-        position = "inside",
-        title    = NULL
-      )
-    ) +
-    theme_void(
-      base_size   = 8,
-      base_family = "Roboto"
-    ) +
-    theme(
-      legend.position.inside = c(.3, .8),
-      legend.key.spacing.y   = unit(2, "mm"),
-      legend.key.width       = unit(5, "mm"),
-      legend.key.height      = unit(1, "mm"),
-      legend.key             = element_rect(colour = "black", linewidth = .2),
-      legend.text            = element_text(size = 5),
+  guides(
+    fill = guide_legend(
+      position = "inside",
+      title    = NULL
     )
+  ) +
+  theme_void(
+    base_size   = 8,
+    base_family = "Roboto"
+  ) +
+  theme(
+    legend.position.inside = c(.3, .8),
+    legend.key.spacing.y   = unit(2, "mm"),
+    legend.key.width       = unit(5, "mm"),
+    legend.key.height      = unit(1, "mm"),
+    legend.key             = element_rect(colour = "black", linewidth = .2),
+    legend.text            = element_text(size = 5),
+  )
 
 ## Visualize NDVI
 ndvi_gg <- ggplot() +
