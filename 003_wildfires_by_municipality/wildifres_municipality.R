@@ -25,7 +25,7 @@ p_load(
 # 2. Load data ------------------------------------------------------------
 
 ## Load data
-wildfires_tbl <- read_excel("02_wildfires_ccaa_2006_2015/wildfires_2006_2015.xlsx",
+wildfires_tbl <- read_excel("002_wildfires_ccaa_2006_2015/wildfires_2006_2015.xlsx",
                             sheet = 3) 
 
 ## Set names
@@ -108,7 +108,7 @@ plot_gg(g,
         zoom             = .5, 
         phi              = 35, 
         theta            = -30) 
-render_snapshot("04_wildfires_by_municipality/wildfires_ha_muni.png", clear = T)
+render_snapshot("003_wildfires_by_municipality/wildfires_ha_muni.png", clear = T)
 
 
 # 7. Number of fires ------------------------------------------------------
@@ -154,6 +154,6 @@ plot_gg(g2,
         zoom = .5, 
         phi    = 35, 
         theta  = -30)
-render_snapshot("04_wildfires_by_municipality/wildfires_number_muni.png", clear = T)
+render_snapshot("003_wildfires_by_municipality/wildfires_number_muni.png", clear = T)
 
 

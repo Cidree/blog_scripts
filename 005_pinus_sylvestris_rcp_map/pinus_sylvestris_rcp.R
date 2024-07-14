@@ -149,7 +149,7 @@ ps_gg <- rcp45_gg +
 
 ## Export
 ggsave(
-  filename = "05_pinus_sylvestris_rcp_map/psylvestris_rcp.png",
+  filename = "005_pinus_sylvestris_rcp_map/psylvestris_rcp.png",
   plot     = ps_gg,
   width    = 25,
   height   = 20,

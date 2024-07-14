@@ -26,7 +26,7 @@ p_load(
 # 2. Load data ------------------------------------------------------------
 
 ## Load data
-wildfires_tbl <- read_excel("02_wildfires_ccaa_2006_2015/wildfires_2006_2015.xlsx",
+wildfires_tbl <- read_excel("002_wildfires_ccaa_2006_2015/wildfires_2006_2015.xlsx",
                  sheet = 3) 
 
 ## Set names

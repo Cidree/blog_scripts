@@ -204,7 +204,7 @@ ndvi_gg +
 
 ## Save the plot
 ggsave(
-  filename = "06_ndvi_rsi/tenerife_indexes.png",
+  filename = "006_ndvi_rsi/tenerife_indexes.png",
   height   = 14,
   width    = 30,
   units    = "cm"

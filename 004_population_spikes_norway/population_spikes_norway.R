@@ -140,7 +140,7 @@ render_camera(
 
 ## Render previous map in high quality
 rayshader::render_highquality(
-  filename       = "norway_spikes_map.png",
+  filename       = "004_population_spikes_norway/norway_spikes_map.png",
   preview        = TRUE,
   light          = TRUE,
   lightdirection = c(240, 320),
