@@ -40,13 +40,13 @@ download.file(
   mode     = "wb"
 )
 
-# Construct the unrar command
+# unrar the files
 archive_extract(rar_file, dest_dir)
 
 ## List files
 fs::dir_tree(dest_dir)
 
-## Unrar national parks
+## Unrar spatial data
 try(
   archive_extract(
     paste0(dest_dir, "/limites_red/desc_Red_PN_LIM_Enero2023.rar"), 
@@ -92,7 +92,7 @@ cycling_routes_osm <- opq(
 ## Extract routes
 cycling_routes_sf <- cycling_routes_osm$osm_multilines
 
-## Group by name
+## Dissolve by name
 cycling_routes_united_sf <- cycling_routes_sf |> 
   group_by(name) |> 
   summarise(
